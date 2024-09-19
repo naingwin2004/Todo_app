@@ -9,8 +9,8 @@ const TodoList = () => {
 	return (
 		<ul className='w-full'>
 			{todos.length === 0 && (
-				<p className='flex justify-center items-center font-bold text-2xl h-full border-b border-black/5 py-2 md:border-none '>
-					Somthing write here
+				<p className='flex justify-center items-center font-bold text-xl h-full border-b border-black/5 py-2 md:border-none '>
+					Start by adding a todo
 				</p>
 			)}
 			{todos.map((todo) => (

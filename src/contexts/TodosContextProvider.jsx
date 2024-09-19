@@ -1,11 +1,7 @@
 import { createContext, useState, useEffect } from "react"
 export const TodosContext = createContext(null)
 
-const initialTodo = [
-	{ id: 1, text: "Get a girlfriend", isCompleted: false },
-	{ id: 2, text: "Buy a Laptop", isCompleted: false },
-	{ id: 3, text: "Go outside", isCompleted: true },
-]
+const initialTodo = []
 
 const TodosContextProvider = ({ children }) => {
 	// state
@@ -25,9 +21,20 @@ const TodosContextProvider = ({ children }) => {
 			),
 		)
 	}
-
+	//addTodo
+	const addTodo = (content) => {
+		if (todos.length >= 3) {
+			alert("To add more todos, please log in.")
+			return;
+		}
+		setTodos([
+			...todos,
+			{ id: todos.length + 1, text: content, isCompleted: false },
+		])
+	}
 	return (
-		<TodosContext.Provider value={{ todos, deleteTodo ,toggleTodo}}>
+		<TodosContext.Provider
+			value={{ todos, deleteTodo, toggleTodo, addTodo }}>
 			{children}
 		</TodosContext.Provider>
 	)
