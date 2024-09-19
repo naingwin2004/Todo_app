@@ -12,7 +12,7 @@ const SideBar = () => {
 				<Button>Add to list</Button>
 			</form>
 			<div className='flex flex-col gap-3 '>
-				<Button btnColor="secondary">Login in</Button>
+				<Button btnColor="secondary">Login</Button>
 				<Button btnColor="secondary">Register</Button>
 			</div>
 		</section>
