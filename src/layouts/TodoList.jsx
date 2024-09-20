@@ -1,11 +1,12 @@
-import { useState } from "react"
+import { useState } from "react";
 
 //components
-import DeletedTodo from "../components/DeletedTodo.jsx"
+import DeletedTodo from "../components/DeletedTodo.jsx";
+import EditTodo from "../components/EditTodo.jsx";
 //hook
-import { useTodosContext } from "../hook/useTodosContext.js"
+import { useTodosContext } from "../hook/useTodosContext.js";
 const TodoList = () => {
-	const { todos, toggleTodo } = useTodosContext()
+	const { todos, toggleTodo } = useTodosContext();
 	return (
 		<ul className='w-full'>
 			{todos.length === 0 && (
@@ -20,14 +21,21 @@ const TodoList = () => {
 					<p
 						className={`${
 							todo.isCompleted && "line-through opacity-30"
-						} w-full cursor-pointer`} onClick={()=>toggleTodo(todo.id)}>
+						} w-full cursor-pointer`}
+						onClick={() => toggleTodo(todo.id)}>
 						{todo.text}
 					</p>
-					<DeletedTodo id={todo.id} className="cursor-pointer" />
+					<div className="flex gap-1">
+						<EditTodo todo={todo}/>
+						<DeletedTodo
+							id={todo.id}
+							className='cursor-pointer'
+						/>
+					</div>
 				</li>
 			))}
 		</ul>
-	)
-}
+	);
+};
 
-export default TodoList
+export default TodoList;
