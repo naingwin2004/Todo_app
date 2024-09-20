@@ -1,7 +1,11 @@
 import { createContext, useState, useEffect } from "react";
+//kinde auth 
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 export const TodosContext = createContext(null);
 
 const TodosContextProvider = ({ children }) => {
+  //auth
+  const {isAuthenticated} = useKindeAuth()
 	//get todos from localStorage
 	const initialTodos = () => {
 		const saveTodos = localStorage.getItem("todos");
@@ -39,7 +43,7 @@ const editTodo = (id, content) => {
 	};
 	//addTodo
 	const addTodo = (content) => {
-		if (todos.length >= 3) {
+		if (todos.length >= 3 && !isAuthenticated) {
 			alert("To add more todos, please log in.");
 			return;
 		}

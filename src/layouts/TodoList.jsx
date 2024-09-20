@@ -8,7 +8,7 @@ import { useTodosContext } from "../hook/useTodosContext.js";
 const TodoList = () => {
 	const { todos, toggleTodo } = useTodosContext();
 	return (
-		<ul className='w-full'>
+		<ul className='w-full md:overflow-y-auto'>
 			{todos.length === 0 && (
 				<p className='flex justify-center items-center font-bold text-xl h-full border-b border-black/5 py-2 md:border-none '>
 					Start by adding a todo

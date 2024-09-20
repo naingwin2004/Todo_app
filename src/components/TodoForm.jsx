@@ -9,6 +9,10 @@ const TodoForm = () => {
 
 	const handleForm = (e) => {
 		e.preventDefault();
+		const trimContent = todoContent.trim()
+		if(!trimContent){
+		  return
+		}
 		if (editingTodoId) {
 			editTodo(editingTodoId, todoContent);
 		} else {
