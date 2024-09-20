@@ -10,8 +10,8 @@ createRoot(document.getElementById("root")).render(
 		<KindeProvider
 			clientId='8d4c619f73d54a52b2511194a5573ca1'
 			domain='https://naingwin.kinde.com'
-			redirectUri='http://localhost:5173'
-			logoutUri='http://localhost:5173'>
+			redirectUri='https://todo-app-by-naingwin.vercel.app/'
+			logoutUri='https://todo-app-by-naingwin.vercel.app/'>
 			<TodosContextProvider>
 				<App />
 			</TodosContextProvider>
